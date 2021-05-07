@@ -1,5 +1,5 @@
 {
-  "*.js": "eslint --fix --chache",
+  "*.js": "eslint --fix --cache",
   "*.css": "stylelint --fix",
   "*.{js,css,html,json,md,svg}": "prettier --write"
 }
