@@ -6,16 +6,19 @@
   color: #2c3e50;
   display: grid;
   height: 100vh;
+  grid-template-rows: auto 1fr auto;
 }
 .header {
   background-color: lightgreen;
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.5fr;
 }
 .header__img {
   height: 4em;
   width: auto;
   background-color: lightgoldenrodyellow;
 }
-.objectSection {
+.entrySection {
   background-color: lightgrey;
 }
 .footer {
