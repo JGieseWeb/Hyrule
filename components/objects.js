@@ -4,8 +4,7 @@ export function createObjectElement({
   image,
   name,
   category,
-  describtion,
-  origin,
+  description,
   id,
 }) {
   return createElement("div", {
@@ -15,8 +14,7 @@ export function createObjectElement({
 
       createElement("h2", { innerText: name }),
       createElement("p", { innerText: category }),
-      createElement("p", { innerText: describtion }),
-      createElement("p", { innerText: origin.name }),
+      createElement("p", { innerText: description }),
       createElement("p", { id }),
     ],
   });

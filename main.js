@@ -21,8 +21,11 @@ const header = createElement("header", {
       oninput: debounce((event) => {
         removeChildren(entrySection);
         const search = event.target.value;
+        console.log("1", search);
         getEntrys(search).then((entry) => {
+          console.log(entry);
           entrySection.append(...entry.map(createObjectElement));
+          console.log("2", entrySection);
         });
       }, 300),
     }),
