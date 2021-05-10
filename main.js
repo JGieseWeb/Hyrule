@@ -2,7 +2,7 @@ import "./style.css";
 import { createElement, removeChildren } from "./utils/elements";
 import { createObjectElement } from "./components/objects";
 import { debounce } from "./components/timer";
-import { getObjects } from "./utils/api";
+import { getEntrys } from "./utils/api";
 const header = createElement("header", {
   className: "header",
   children: [
@@ -19,17 +19,20 @@ const header = createElement("header", {
       placeholder: "Search",
       autofocus: true,
       oninput: debounce((event) => {
-        removeChildren(objectSection);
+        removeChildren(entrySection);
         const search = event.target.value;
-        getObjects(search).then((objects) => {
-          objectSection.append(...objects.map(createObjectElement));
+        console.log("1", search);
+        getEntrys(search).then((entry) => {
+          console.log(entry);
+          entrySection.append(...entry.map(createObjectElement));
+          console.log("2", entrySection);
         });
       }, 300),
     }),
   ],
 });
-const objectSection = createElement("objectSection", {
-  className: "objectSection",
+const entrySection = createElement("entrySection", {
+  className: "entrySection",
 });
 const footer = createElement("footer", {
   className: "footer",
@@ -39,4 +42,4 @@ const footer = createElement("footer", {
     }),
   ],
 });
-document.querySelector("#app").append(header, objectSection, footer);
+document.querySelector("#app").append(header, entrySection, footer);

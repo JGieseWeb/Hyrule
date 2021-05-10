@@ -1,15 +1,15 @@
-export async function getObjects(name) {
+export async function getEntrys(name) {
   const promise = fetch(
-    `https://botw-compendium.herokuapp.com/api/v2/entry/${name}`
+    `https://botw-compendium.herokuapp.com/api/v2/category/creatures`
   );
   const response = await promise;
   if (response.status === 404) {
     return [];
   }
   const data = await response.json();
-  return data.name;
+  return data.data.non_food.filter((creature) => creature.name === name);
 }
-export async function getObject(id) {
+export async function getEntry(id) {
   const promise = fetch(
     `https://botw-compendium.herokuapp.com/api/v2/entry/${id}`
   );
@@ -18,5 +18,6 @@ export async function getObject(id) {
     return {};
   }
   const data = await response.json();
-  return data;
+  return data.data;
 }
+// .filter((creature) => creature.name === name)
